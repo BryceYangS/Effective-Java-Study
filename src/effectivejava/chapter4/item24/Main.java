@@ -12,7 +12,17 @@ public class Main {
         NonStaticTest nonStaticOuter = new NonStaticTest();
         // 방법 1.
         NonStaticTest.NonStaticInner innerInstance = nonStaticOuter.getInnerInstance();
+        innerInstance.innerHi(); // Hi
         // 방법 2.
         NonStaticTest.NonStaticInner inner = nonStaticOuter.new NonStaticInner();
+        inner.innerHi(); // Hi
+
+        AnonymousTest anonymousOuter = new AnonymousTest();
+        AnonymousTest.Inner anonInner = anonymousOuter.innerClass();
+        anonInner.Hello("foo");
+
+        // static 경우
+        AnonymousTest.Inner anonInner2 = AnonymousTest.innerClass();
+        anonInner2.Hello("bar");
     }
 }
